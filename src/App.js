@@ -14,10 +14,13 @@ function App() {
     <div className="App">
     <Header />
     <NavBar />
-    <Articles />
     <Routes>
-      <Route path='/articles' element={<ListArticles />} />
-      <Route path="/articles/:category_name" element={<Articles />} />
+      <Route path='/articles'>
+        <Route index element={<Articles topic="No Category" />} />
+        <Route path="football" element={<Articles topic="football"/>} />
+        <Route path="cooking" element={<Articles topic="cooking"/>} />
+        <Route path="coding" element={<Articles topic="coding"/>} />
+      </Route>
     </Routes>
     <Footer />
     </div>  

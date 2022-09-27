@@ -38,3 +38,17 @@
   margin: 0 auto;
 }
 
+.nav-article { color: #fcfcfc; } 
+.nav-article:hover { color: #0cad0c; } 
+
+.article-nav {
+  text-align: center;
+  background-color: #282c34;
+  display: flex;
+    justify-content: space-between;
+    width: 20rem;
+    list-style-type: none;
+    padding: 1rem;
+    margin: 0 auto;
+    color: white;
+}

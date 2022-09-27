@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <div>
+          <div className="app-header">
         <h1> THE NEWS </h1>
         </div>
     )

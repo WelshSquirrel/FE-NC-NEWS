@@ -29,8 +29,12 @@
 .nav-title:hover { color: #0cad0c; } 
 
 .article-list {
-  list-style: none
-
+  list-style: none;
 }
 
+.listed-articles {
+  border-style: solid;
+  padding: 2%;
+  margin: 0 auto;
+}
 

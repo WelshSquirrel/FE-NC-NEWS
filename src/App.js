@@ -1,8 +1,9 @@
 import './App.css';
 import { Route, Routes, Link } from 'react-router-dom';
-import Header from './components/header.jsx';
-import Footer from './components/footer.jsx';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
 import ListArticles from './components/ListAritcles';
+import NavBar from './components/NavBar';
 
 
 function App() {
@@ -11,15 +12,7 @@ function App() {
     <>
     <div className="App">
     <Header />
-      <nav className="nav-bar">
-          <Link className="nav-title" to="/">
-            <span className="nav-group">Home</span>
-          </Link>
-          <Link className="nav-title" to="/articles">
-            <span className="nav-group">Articles</span>
-          </Link>
-      </nav>
-      
+    <NavBar />
     <Routes>
       <Route path='/articles' element={<ListArticles />} />
     </Routes>

@@ -8,7 +8,7 @@ const ListArticles = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        getArticles().then((res) => {
+        getArticles(searchType).then((res) => {
             setArticles(res)
             setIsLoading(false);
         }).catch(() => {

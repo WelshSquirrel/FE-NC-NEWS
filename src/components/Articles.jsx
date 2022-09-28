@@ -1,17 +1,11 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import ListArticles from "./ListAritcles";
 
 const Search = ({topic}) => {
 
-const [topicSelect, setTopicSelect ] = useState("Search By")
-
-console.log(topic)
-
 const handleSubmit = (event) => {
     event.preventDefault();
-    setTopicSelect(event.target.value);
-    setTopicSelect("")
+    
 };
 
 return (

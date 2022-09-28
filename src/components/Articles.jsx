@@ -1,26 +1,35 @@
-import { Link } from "react-router-dom";
-import ListArticles from "./ListAritcles";
+import { Route, Routes, Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { getArticles } from '../utils/api.js'
+import NavArticle from "./NavArticle";
+import ListArticles from "./ListAritcles.jsx";
 
-const Search = ({topic}) => {
+const Articles = () => {
 
-const handleSubmit = (event) => {
-    event.preventDefault();
-    
-};
+const [isLoading, setIsLoading] = useState(true);
+const [articles, setArticles] = useState([])
+
+const { topic } = useParams()
+
+
+useEffect(() => {
+    setIsLoading(true);
+    getArticles(topic).then((res) => {
+        setArticles(res)
+        setIsLoading(false);
+    })
+}, [topic])
+
+if(isLoading) return <p>Loading...</p>
 
 return (
-	<div>
-<form onSubmit={handleSubmit}>
-    <label> </label>
-      <nav className="article-nav">
-	  <Link className='nav-article'to="/articles">All</Link>
-        <Link className='nav-article'to="/articles/football">football</Link>
-        <Link className='nav-article'to="/articles/cooking">cooking</Link>
-		<Link className='nav-article'to="/articles/coding">coding</Link>
-      </nav>
-</form>
-	<ListArticles topicSelect={topic}/>
-</div>
+    <div>
+        <div>
+            <NavArticle />
+        </div>
+        <ListArticles articles={articles} />
+    </div>
 )
-}
-export default Search
+};
+
+export default Articles;

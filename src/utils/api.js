@@ -10,3 +10,10 @@ export const getArticles = (query) => {
         return data.articles
     })
 }
+
+export const getArticleById = (Id) => {
+    return newsApi.get(`/articles/${Id}`)
+    .then(({data}) => {
+        return data.article
+    })
+}

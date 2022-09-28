@@ -4,6 +4,7 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import NavBar from './components/NavBar';
 import Articles from './components/Articles';
+import IndividualArticle from './components/IndividualArticle';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <Routes>
       <Route path='/articles' element={<Articles />}/>
       <Route path="/articles/:topic" element={<Articles />} />
+      <Route path="/article/:article_id" element={<IndividualArticle />} />
     </Routes>
     <Footer />
     </div>  

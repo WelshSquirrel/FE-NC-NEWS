@@ -21,7 +21,6 @@ return (
         <button>Coding</button>
         </Link>
     </nav>
-
 )
 }
 

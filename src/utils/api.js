@@ -29,3 +29,9 @@ export const getCommentsByArticleId = (Id) => {
         return data.comments
     })
 }
+
+export const postComment = (Id, username, body) => {
+    return newsApi.post(`/articles/${Id}/comments`).then(({data}) => {
+        return data.comments
+    })
+}

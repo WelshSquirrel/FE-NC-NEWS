@@ -17,7 +17,6 @@ const IndividualArticle = () => {
             setIsLoading(false)
         })
     }, [article_id]);
-    console.log(article.votes)
     return (
         <div>
         <h3>{article.title}</h3>

@@ -3,6 +3,7 @@ import { getArticleById } from "../utils/api";
 import { useParams } from "react-router-dom";
 import Voting from "./Voting";
 
+
 const IndividualArticle = () => {
 
     const { article_id } = useParams()
@@ -16,7 +17,7 @@ const IndividualArticle = () => {
             setIsLoading(false)
         })
     }, [article_id]);
-    
+    console.log(article.votes)
     return (
         <div>
         <h3>{article.title}</h3>

@@ -1,10 +1,12 @@
 import { updateVotes } from "../utils/api"
 import { useState } from "react"
 
+
+
 const Voting = ({article_id, articleVotes}) => {
     
     const [voteCount, setVoteCount ] = useState(0)
-    console.log(articleVotes)
+    
 
     const upVote = (Id) => {
         if(voteCount === 0) {
@@ -27,10 +29,25 @@ const Voting = ({article_id, articleVotes}) => {
     }
 
     return (
-        <div>
-            <button onClick={() => upVote(article_id)}>Like</button>
-            <button onClick={() => downVote(article_id)}>Disike</button>
-        </div>
+        
+    <section >
+    <button onClick={() => upVote(article_id)} >
+      <span >Like</span>
+    </button>
+    <button onClick={() => downVote(article_id)} >
+      <span >
+        Dislike
+      </span>
+    </button>
+    <h3 className={(articleVotes + voteCount) > 0 ? "green-txt" : (articleVotes + voteCount)
+    < 0 ? "red-txt" : "txt"}>
+      <span >
+        Votes
+      </span>
+      ( {articleVotes + voteCount} vote)
+    </h3>
+    
+    </section>
     )
 }
 

@@ -52,3 +52,32 @@
     margin: 0 auto;
     color: white;
 }
+.comment-area {
+  background-color: #282c34;
+}
+.comment-header {
+  color: #fcfcfc;
+  font-size: calc(8px + 2vmin);
+}
+.comment {
+  background-color: #282c34;
+  color: #fcfcfc;
+  margin: 1 auto;
+  padding: 2rem;
+  font-size: calc(2px + 2vmin);
+  border-width:1px;
+  border-style:solid;
+  border-color: rgb(226, 191, 35);
+}
+
+.comment-author {
+  font-size: calc(4px + 2vmin);
+}
+
+.comment-text {
+  font-size: calc(1px + 2vmin);
+}
+
+.comment-date {
+  font-size: calc(0.01px + 2vmin);
+}

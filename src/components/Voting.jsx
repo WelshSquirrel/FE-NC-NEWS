@@ -46,7 +46,6 @@ const Voting = ({article_id, articleVotes}) => {
       </span>
       ( {articleVotes + voteCount} vote)
     </h3>
-    
     </section>
     )
 }

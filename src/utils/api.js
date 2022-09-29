@@ -23,3 +23,9 @@ export const updateVotes = (Id, num) => {
         return data
     })
 }
+
+export const getCommentsByArticleId = (Id) => {
+    return newsApi.get(`/articles/${Id}/comments`).then(({data}) => {
+        return data.comments
+    })
+}

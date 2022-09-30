@@ -11,21 +11,19 @@ const IndividualArticle = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [comments, setComments ] = useState([])
     const [newComment, setNewComment ] = useState("");
+    const [errorSubmit, setErrorSubmit ] = useState(false)
 
 
-
-    const onSubmit = event => {
+    const onSubmit = () => {
         setIsLoading(true)
-        event.preventDefault()
         setComments((prevComments) => {
             const newComments = [{comment_id:Date.now(), body: newComment, author: "grumpy19"},...prevComments]
             return newComments;
         })
         postComment(article_id, "grumpy19", newComment).then((res) => {
                 setIsLoading(false)
-                return res
         }).catch((err) => {
-                console.log(err)
+            return setErrorSubmit(true)
         })
     }
 
@@ -46,7 +44,7 @@ const IndividualArticle = () => {
     }, [article_id])
     
     if(isLoading) return <p>Loading...</p>
-
+    if(errorSubmit) return <p>Error submitting comment</p>
     return (
         <div>
         <h3>{article.title}</h3>

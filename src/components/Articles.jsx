@@ -10,7 +10,6 @@ const [isLoading, setIsLoading] = useState(true);
 const [articles, setArticles] = useState([])
 const [params, setParams ] = useState({})
 
-
 useEffect(() => {
     setIsLoading(true);
     getArticles(params).then(({ articles }) => {
@@ -23,8 +22,10 @@ useEffect(() => {
     setParams({ topic })
 }, [topic])
 
-const handleSort = (column) => {
-    setParams((currParams) => {
+const handleSort = (event) => {
+    console.log(event.target.value)
+    const column = event.target.value;
+    setParams((currParams, ) => {
         return { ...currParams, sort_by: column}
     })
 }
@@ -35,11 +36,12 @@ return (
     <div>
         <div>
             <NavArticle />
-            <select>
-                <option onClick={() => handleSort('title')}value='title'>Title</option>
-                <option onClick={() => handleSort('author')}value='author'>Author</option>
-                <option onClick={() => handleSort('votes')}value='votes'>Votes</option>
-                <option onClick={() => handleSort('created_at')}value='created_at'>Release Date</option>
+            <select onChange={handleSort}>
+                <option value='title'>Sort By</option>
+                <option value='title'>Title</option>
+                <option value='author'>Author</option>
+                <option value='votes'>Votes</option>
+                <option value='created_at'>Release Date</option>
             </select>
         </div>
         <ListArticles params={params} articles={articles} />

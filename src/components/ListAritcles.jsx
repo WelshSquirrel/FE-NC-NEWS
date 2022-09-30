@@ -7,8 +7,8 @@ return (
     {articles.map(article => (
     
         <li className='listed-articles' key={article.article_id}>
-            <Link to={`/article/${article.article_id}`}>Article Name: {article.title}</Link> <br></br>Topic:
-            {article.topic}</li>
+            <Link to={`/article/${article.article_id}`}>{article.title}</Link> <br></br>Topic:
+            {article.topic}<br></br>Author: {article.author}</li>
     )
     )}
 </ul>

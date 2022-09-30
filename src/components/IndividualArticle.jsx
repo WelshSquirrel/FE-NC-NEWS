@@ -11,19 +11,24 @@ const IndividualArticle = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [comments, setComments ] = useState([])
     const [newComment, setNewComment ] = useState("");
-    const isCommentAreaDisabled = newComment.length === 0;
+
+
 
     const onSubmit = event => {
+        setIsLoading(true)
         event.preventDefault()
-        setNewComment();
-        
+        setComments((prevComments) => {
+            const newComments = [{comment_id:Date.now(), body: newComment, author: "grumpy19"},...prevComments]
+            return newComments;
+        })
+        postComment(article_id, "grumpy19", newComment).then((res) => {
+                setIsLoading(false)
+                return res
+        }).catch((err) => {
+                console.log(err)
+        })
     }
 
-    const addComment = () => {
-        postComment(article_id, "cooljmessy", newComment)
-        setNewComment("")
-    }
-    
     useEffect(() => {
         setIsLoading(true)
         getArticleById(article_id).then((res) => {
@@ -52,14 +57,10 @@ const IndividualArticle = () => {
         <div className="comment-area">
             <h3 className="comment-header">Comment Section</h3>
             <div className="comment-form-title">Write Comment</div>
-
-            
-            <form onSubmit={onSubmit}>
-            <button>submitLabel="Write" handleSubmit={addComment}</button>
-            <textarea className="comment-form-text" value= {newComment} onChange={(e) => setNewComment(e.target.value)}/>
-            <button className="comment-form-button" disabled={isCommentAreaDisabled}></button>
-            </form>
-
+                <form onSubmit={onSubmit}>
+                <textarea className="comment-form-text" value= {newComment} onChange={(e) => setNewComment(e.target.value)}/>
+                <button>Submit</button>
+                </form>
             <div>
             {comments.map((comment) => (
                 <Comment key={comment.comment_id} comment={comment}/>

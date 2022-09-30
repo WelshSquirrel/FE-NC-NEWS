@@ -6,7 +6,6 @@ return (
             <div className="comment-author">
                 {comment.author}
             </div>
-            <div className="comment-date">{comment.created_at}</div>
             <div>
                 <img src=""></img>
             </div>
